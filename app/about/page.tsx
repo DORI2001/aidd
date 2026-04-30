@@ -4,5 +4,5 @@ export default function About() {
       <h1 className="text-3xl font-bold text-white">About Me</h1>
       <p className="text-gray-300">I am a Computer Science student at HIT, passionate about technology and innovation!</p>
     </main>
-  );
+        );
 }
