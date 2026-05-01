@@ -9,13 +9,20 @@ export default function Home() {
       </h1>
       <div className="h-1 w-24 bg-cyan-400 rounded-full mt-2"></div>
       <p className="text-lg md:text-xl text-zinc-300 mt-6 text-center max-w-lg font-mono">
-        Computer Science student at HIT, passionate about technology and innovation!
+        Computer Science student at HIT, passionate about technology and
+        innovation!
       </p>
       <div className="flex gap-4 mt-8">
-        <Link href="/about" className="border border-cyan-400 text-cyan-400 font-mono px-6 py-2 rounded-full hover:bg-cyan-400 hover:text-black transition-colors">
+        <Link
+          href="/about"
+          className="border border-cyan-400 text-cyan-400 font-mono px-6 py-2 rounded-full hover:bg-cyan-400 hover:text-black transition-colors"
+        >
           about me
         </Link>
-        <Link href="/projects" className="border border-cyan-400 text-cyan-400 font-mono px-6 py-2 rounded-full hover:bg-cyan-400 hover:text-black transition-colors">
+        <Link
+          href="/projects"
+          className="border border-cyan-400 text-cyan-400 font-mono px-6 py-2 rounded-full hover:bg-cyan-400 hover:text-black transition-colors"
+        >
           projects
         </Link>
       </div>

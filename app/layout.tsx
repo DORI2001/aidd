@@ -16,11 +16,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Dor Alagem",
-  description: "Computer Science student at HIT, passionate about technology and innovation!",
+  description:
+    "Computer Science student at HIT, passionate about technology and innovation!",
 };
 
 export default function RootLayout({
-
   children,
 }: Readonly<{
   children: React.ReactNode;
