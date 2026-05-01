@@ -1,5 +1,5 @@
 export default function About() {
-  const skills = ["Python", "C", "SQL", "Data Structures", "Algorithms", "AI Tools", "GitHub", "Docker"];
+  const skills = ["Python", "C", "SQL", "Data Structures", "Algorithms", "AI Tools", "GitHub", "Docker", "Prompt Engineering"];
 
   return (
     <div className="flex-1 min-h-screen flex flex-col items-center justify-center gap-12 p-8 max-w-3xl mx-auto">

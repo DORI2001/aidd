@@ -10,6 +10,11 @@ const projects = [
     link: "https://github.com/DORI2001/AV-course",
   },
   {
+    name: "Pollarsteps",
+    description: "Full-stack travel tracking app. Add locations on an interactive map, attach photos, get AI-powered recommendations, and share trips with friends. Built with Next.js, FastAPI, Docker, and JWT auth.",
+    link: "https://github.com/DORI2001/pollarsteps",
+  },
+  {
     name: "This Portfolio",
     description: "Built from scratch with Next.js 16 and Tailwind CSS v4. My first web dev project — designed and coded while learning the fundamentals.",
     link: "https://github.com/DORI2001/aidd",
