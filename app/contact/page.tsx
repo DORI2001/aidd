@@ -1,11 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { sendEmail } from "@/app/actions/sendEmail";
 
 export default function Contact() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [cooldown, setCooldown] = useState(0);
+
+  useEffect(() => {
+    if (cooldown <= 0) return;
+    const timer = setTimeout(() => setCooldown((c) => c - 1), 1000);
+    return () => clearTimeout(timer);
+  }, [cooldown]);
 
   async function handleSubmit(e: { preventDefault(): void; currentTarget: HTMLFormElement }) {
     e.preventDefault();
@@ -13,6 +20,7 @@ export default function Contact() {
     const formData = new FormData(e.currentTarget);
     const result = await sendEmail(formData);
     setStatus(result.success ? "success" : "error");
+    setCooldown(30);
   }
 
   return (
@@ -57,10 +65,10 @@ export default function Contact() {
         />
         <button
           type="submit"
-          disabled={status === "sending"}
+          disabled={status === "sending" || cooldown > 0}
           className="bg-cyan-400 text-black font-mono font-semibold px-6 py-3 rounded-full hover:bg-cyan-300 transition-colors disabled:opacity-50"
         >
-          {status === "sending" ? "sending..." : "send →"}
+          {status === "sending" ? "sending..." : cooldown > 0 ? `wait ${cooldown}s` : "send →"}
         </button>
         {status === "success" && (
           <p className="text-emerald-400 font-mono text-sm text-center">message sent!</p>
