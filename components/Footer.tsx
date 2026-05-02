@@ -1,5 +1,5 @@
-import Image from "next/image";
 import CopyEmail from "@/components/CopyEmail";
+import SocialLinks from "@/components/SocialLinks";
 
 export default function Footer() {
   return (
@@ -7,22 +7,7 @@ export default function Footer() {
       <span>© {new Date().getFullYear()} Dor Alagem</span>
       <div className="flex gap-4">
         <CopyEmail size={20} dim />
-        <a
-          href="https://github.com/DORI2001"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:opacity-70 transition-opacity"
-        >
-          <Image src="/github.svg" alt="GitHub" width={20} height={20} className="invert opacity-60" />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/dor-alagem"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:opacity-70 transition-opacity"
-        >
-          <Image src="/linkedin.svg" alt="LinkedIn" width={20} height={20} className="invert opacity-60" />
-        </a>
+        <SocialLinks size={20} dim />
       </div>
     </footer>
   );

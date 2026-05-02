@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { NAV_LINKS } from "@/lib/constants";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,18 +29,11 @@ export default function Navbar() {
       <div
         className={`flex flex-col gap-2 mt-2 md:flex-row md:gap-6 md:mt-0 md:flex ${isOpen ? "flex" : "hidden"}`}
       >
-        <Link href="/" className={linkClass("/")}>
-          home
-        </Link>
-        <Link href="/about" className={linkClass("/about")}>
-          about
-        </Link>
-        <Link href="/projects" className={linkClass("/projects")}>
-          projects
-        </Link>
-        <Link href="/contact" className={linkClass("/contact")}>
-          contact
-        </Link>
+        {NAV_LINKS.map(({ href, label }) => (
+          <Link key={href} href={href} className={linkClass(href)}>
+            {label}
+          </Link>
+        ))}
       </div>
     </nav>
   );

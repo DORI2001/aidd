@@ -2,12 +2,15 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import NavButton from "@/components/NavButton";
 
-const lines = [
-  "~/dor-alagem $ cd /page-that-doesnt-exist",
-  "error: page not found",
-  "exit code: 404",
-  "did you mean: /home ?",
+type LineStyle = "dim" | "error" | "link";
+
+const lines: { text: string; style: LineStyle }[] = [
+  { text: "~/dor-alagem $ cd /page-that-doesnt-exist", style: "dim" },
+  { text: "error: page not found", style: "error" },
+  { text: "exit code: 404", style: "dim" },
+  { text: "did you mean: /home ?", style: "link" },
 ];
 
 export default function NotFound() {
@@ -18,7 +21,7 @@ export default function NotFound() {
   useEffect(() => {
     if (done) return;
     const current = lines[lineIndex];
-    if (charIndex < current.length) {
+    if (charIndex < current.text.length) {
       const t = setTimeout(() => setCharIndex((c) => c + 1), 18);
       return () => clearTimeout(t);
     } else {
@@ -30,23 +33,19 @@ export default function NotFound() {
     }
   }, [lineIndex, charIndex, done]);
 
-  function renderLine(line: string, i: number) {
-    const isVisible = i < lineIndex || (i === lineIndex);
-    if (!isVisible) return null;
-    const text = i === lineIndex ? line.slice(0, charIndex) : line;
-    const isDim = i !== 1;
+  function renderLine(line: { text: string; style: LineStyle }, i: number) {
+    if (i > lineIndex) return null;
+    const text = i === lineIndex ? line.text.slice(0, charIndex) : line.text;
 
-    if (i === 1) {
-      const errorPart = text.slice(0, Math.min(text.length, 7));
-      const rest = text.slice(7);
+    if (line.style === "error") {
       return (
         <p key={i} className="text-white text-lg">
-          <span className="text-red-400">{errorPart}</span>{rest}
+          <span className="text-red-400">{text.slice(0, 7)}</span>{text.slice(7)}
         </p>
       );
     }
 
-    if (i === 3 && i < lineIndex) {
+    if (line.style === "link") {
       return (
         <p key={i} className="text-zinc-500 text-sm">
           {"did you mean: "}
@@ -58,11 +57,7 @@ export default function NotFound() {
       );
     }
 
-    return (
-      <p key={i} className={`${isDim ? "text-zinc-500" : "text-white"} text-sm`}>
-        {text}
-      </p>
-    );
+    return <p key={i} className="text-zinc-500 text-sm">{text}</p>;
   }
 
   return (
@@ -70,14 +65,7 @@ export default function NotFound() {
       <div className="flex flex-col gap-3 mb-8">
         {lines.map((line, i) => renderLine(line, i))}
       </div>
-      {done && (
-        <Link
-          href="/"
-          className="border border-cyan-400 text-cyan-400 font-mono px-6 py-2 rounded-full hover:bg-cyan-400 hover:text-black transition-colors"
-        >
-          go home
-        </Link>
-      )}
+      {done && <NavButton href="/">go home</NavButton>}
     </div>
   );
 }

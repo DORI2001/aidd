@@ -1,5 +1,5 @@
-import Link from "next/link";
 import TypingText from "@/components/TypingText";
+import NavButton from "@/components/NavButton";
 
 export default function Home() {
   return (
@@ -18,26 +18,10 @@ export default function Home() {
       </div>
       <div className="flex flex-col items-center gap-4 mt-8">
         <div className="flex gap-4">
-          <Link
-            href="/about"
-            className="border border-cyan-400 text-cyan-400 font-mono px-6 py-2 rounded-full hover:bg-cyan-400 hover:text-black transition-colors"
-          >
-            about me
-          </Link>
-          <Link
-            href="/projects"
-            className="border border-cyan-400 text-cyan-400 font-mono px-6 py-2 rounded-full hover:bg-cyan-400 hover:text-black transition-colors"
-          >
-            projects
-          </Link>
+          <NavButton href="/about">about me</NavButton>
+          <NavButton href="/projects">projects</NavButton>
         </div>
-        <a
-          href="/cv.pdf"
-          download
-          className="border border-cyan-400 text-cyan-400 font-mono px-6 py-2 rounded-full hover:bg-cyan-400 hover:text-black transition-colors"
-        >
-          download cv
-        </a>
+        <NavButton href="/cv.pdf" download>download cv</NavButton>
       </div>
     </main>
   );

@@ -1,9 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import { useState, useEffect } from "react";
 import { sendEmail } from "@/app/actions/sendEmail";
 import CopyEmail from "@/components/CopyEmail";
+import SocialLinks from "@/components/SocialLinks";
+
+const inputClass =
+  "bg-neutral-800 text-white rounded-lg p-3 font-mono text-sm outline-none focus:ring-2 focus:ring-cyan-400";
 
 export default function Contact() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
@@ -21,7 +24,7 @@ export default function Contact() {
     const formData = new FormData(e.currentTarget);
     const result = await sendEmail(formData);
     setStatus(result.success ? "success" : "error");
-    setCooldown(30);
+    if (result.success) setCooldown(30);
   }
 
   return (
@@ -33,35 +36,12 @@ export default function Contact() {
       </div>
       <div className="flex gap-6 mb-8">
         <CopyEmail size={32} />
-        <a href="https://github.com/DORI2001" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity">
-          <Image src="/github.svg" alt="GitHub" width={32} height={32} className="invert" />
-        </a>
-        <a href="https://www.linkedin.com/in/dor-alagem" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity">
-          <Image src="/linkedin.svg" alt="LinkedIn" width={32} height={32} className="invert" />
-        </a>
+        <SocialLinks size={32} />
       </div>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full max-w-md">
-        <input
-          name="name"
-          type="text"
-          placeholder="your name"
-          required
-          className="bg-neutral-800 text-white rounded-lg p-3 font-mono text-sm outline-none focus:ring-2 focus:ring-cyan-400"
-        />
-        <input
-          name="email"
-          type="email"
-          placeholder="your email"
-          required
-          className="bg-neutral-800 text-white rounded-lg p-3 font-mono text-sm outline-none focus:ring-2 focus:ring-cyan-400"
-        />
-        <textarea
-          name="message"
-          placeholder="your message"
-          rows={5}
-          required
-          className="bg-neutral-800 text-white rounded-lg p-3 font-mono text-sm outline-none focus:ring-2 focus:ring-cyan-400"
-        />
+        <input name="name" type="text" placeholder="your name" required className={inputClass} />
+        <input name="email" type="email" placeholder="your email" required className={inputClass} />
+        <textarea name="message" placeholder="your message" rows={5} required className={inputClass} />
         <button
           type="submit"
           disabled={status === "sending" || cooldown > 0}
