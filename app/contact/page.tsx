@@ -46,21 +46,21 @@ export default function Contact() {
           type="text"
           placeholder="your name"
           required
-          className="bg-neutral-800 text-white rounded-lg p-3 font-mono text-sm"
+          className="bg-neutral-800 text-white rounded-lg p-3 font-mono text-sm outline-none focus:ring-2 focus:ring-cyan-400"
         />
         <input
           name="email"
           type="email"
           placeholder="your email"
           required
-          className="bg-neutral-800 text-white rounded-lg p-3 font-mono text-sm"
+          className="bg-neutral-800 text-white rounded-lg p-3 font-mono text-sm outline-none focus:ring-2 focus:ring-cyan-400"
         />
         <textarea
           name="message"
           placeholder="your message"
           rows={5}
           required
-          className="bg-neutral-800 text-white rounded-lg p-3 font-mono text-sm"
+          className="bg-neutral-800 text-white rounded-lg p-3 font-mono text-sm outline-none focus:ring-2 focus:ring-cyan-400"
         />
         <button
           type="submit"
