@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://doralagem.com/sitemap.xml
+Sitemap: https://dor-alagem.com/sitemap.xml
