@@ -1,4 +1,5 @@
 import Link from "next/link";
+import TypingText from "@/components/TypingText";
 
 export default function Home() {
   return (
@@ -8,9 +9,7 @@ export default function Home() {
         Dor Alagem
       </h1>
       <div className="h-1 w-24 bg-cyan-400 rounded-full mt-2"></div>
-      <p className="text-zinc-500 font-mono text-sm mt-4 tracking-widest">
-        software engineer · cloud · devops · networks
-      </p>
+      <TypingText text="software engineer · cloud · devops · networks" />
       <div className="flex items-center gap-2 mt-4">
         <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
         <span className="text-emerald-400 font-mono text-xs">
