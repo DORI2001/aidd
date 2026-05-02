@@ -18,6 +18,12 @@ export default function NotFound() {
         </Link>
         ?
       </p>
+      <Link
+        href="/"
+        className="border border-cyan-400 text-cyan-400 font-mono px-6 py-2 rounded-full hover:bg-cyan-400 hover:text-black transition-colors"
+      >
+        go home
+      </Link>
     </div>
   );
 }

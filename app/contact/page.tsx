@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { sendEmail } from "@/app/actions/sendEmail";
+import CopyEmail from "@/components/CopyEmail";
 
 export default function Contact() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
@@ -31,9 +32,7 @@ export default function Contact() {
         <div className="h-1 w-16 bg-cyan-400 rounded-full mt-3 mx-auto"></div>
       </div>
       <div className="flex gap-6 mb-8">
-        <a href="mailto:dor3382@gmail.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity">
-          <Image src="/gmail.svg" alt="Gmail" width={32} height={32} className="invert" />
-        </a>
+        <CopyEmail size={32} />
         <a href="https://github.com/DORI2001" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity">
           <Image src="/github.svg" alt="GitHub" width={32} height={32} className="invert" />
         </a>

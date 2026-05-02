@@ -1,18 +1,12 @@
 import Image from "next/image";
+import CopyEmail from "@/components/CopyEmail";
 
 export default function Footer() {
   return (
     <footer className="w-full bg-neutral-900 p-4 flex items-center justify-between text-zinc-400 text-sm">
       <span>© 2026 Dor Alagem</span>
       <div className="flex gap-4">
-        <a
-          href="mailto:dor3382@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:opacity-70 transition-opacity"
-        >
-          <Image src="/gmail.svg" alt="Gmail" width={20} height={20} className="invert opacity-60" />
-        </a>
+        <CopyEmail size={20} dim />
         <a
           href="https://github.com/DORI2001"
           target="_blank"
