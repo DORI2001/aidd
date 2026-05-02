@@ -21,7 +21,8 @@ export default function About() {
   ];
 
   return (
-    <div className="flex-1 min-h-screen flex flex-col justify-center p-8 max-w-3xl mx-auto gap-12">
+    <div className="flex-1 min-h-screen flex flex-col justify-center p-8 max-w-3xl mx-auto gap-12 relative">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(6,182,212,0.1)_0%,_transparent_60%)] pointer-events-none"></div>
       <div className="flex flex-col items-center gap-8 text-center sm:flex-row sm:items-start sm:text-left">
         <Image
           src="/profile.jpg"

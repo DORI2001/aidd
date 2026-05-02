@@ -44,7 +44,7 @@ export default function Projects() {
         {projects.map((project) => (
           <div
             key={project.name}
-            className="border border-neutral-700 rounded-lg p-6 hover:-translate-y-1 transition-transform"
+            className="border border-neutral-700 rounded-3xl p-6 hover:-translate-y-1 hover:shadow-lg hover:shadow-cyan-950/50 transition-all"
           >
             <h2 className="text-cyan-400 font-mono text-sm uppercase tracking-widest mb-2">
               {project.name}
