@@ -17,6 +17,7 @@ export async function sendEmail(formData: FormData) {
     await resend.emails.send({
       from: "Portfolio Contact <onboarding@resend.dev>",
       to: "dor3382@gmail.com",
+      replyTo: email,
       subject: `New message from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
     });
