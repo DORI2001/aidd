@@ -35,7 +35,8 @@ const projects = [
 
 export default function Projects() {
   return (
-    <div className="flex-1 min-h-screen flex flex-col items-center justify-center gap-4 p-8">
+    <div className="flex-1 min-h-screen flex flex-col items-center justify-center gap-4 p-8 relative">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(6,182,212,0.1)_0%,_transparent_60%)] pointer-events-none"></div>
       <div className="text-center">
         <h1 className="text-4xl font-bold text-white">Projects</h1>
         <div className="h-1 w-16 bg-cyan-400 rounded-full mt-3 mx-auto"></div>

@@ -45,14 +45,17 @@ export default function About() {
       </div>
 
       <div className="flex flex-col gap-8 w-full">
-        <section className="flex flex-col gap-2">
+        <section className="flex flex-col gap-4">
           <h2 className="text-cyan-400 font-mono text-sm uppercase tracking-widest">
             Education
           </h2>
-          <p className="text-white font-semibold">
-            B.Sc. Computer Science — HIT
-          </p>
-          <p className="text-zinc-400 text-sm">2024 – Expected Oct 2026</p>
+          <div className="relative flex flex-col gap-6 border-l border-neutral-700 pl-6">
+            <div className="relative">
+              <div className="absolute -left-[1.65rem] top-1 h-3 w-3 rounded-full bg-gradient-to-b from-cyan-400 to-emerald-400"></div>
+              <p className="text-white font-semibold">B.Sc. Computer Science — HIT</p>
+              <p className="text-zinc-400 text-sm">2024 – Expected Oct 2026</p>
+            </div>
+          </div>
         </section>
 
         <section className="flex flex-col gap-3">
