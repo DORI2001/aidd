@@ -1,12 +1,20 @@
-import type { Metadata } from "next";
-import Image from "next/image";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Contact — Dor Alagem",
-  description: "Get in touch with Dor Alagem via email, GitHub, or LinkedIn.",
-};
+import Image from "next/image";
+import { useState } from "react";
+import { sendEmail } from "@/app/actions/sendEmail";
 
 export default function Contact() {
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+
+  async function handleSubmit(e: { preventDefault(): void; currentTarget: HTMLFormElement }) {
+    e.preventDefault();
+    setStatus("sending");
+    const formData = new FormData(e.currentTarget);
+    const result = await sendEmail(formData);
+    setStatus(result.success ? "success" : "error");
+  }
+
   return (
     <div className="flex-1 min-h-screen flex flex-col items-center justify-center p-8 relative">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(6,182,212,0.1)_0%,_transparent_60%)] pointer-events-none"></div>
@@ -15,75 +23,51 @@ export default function Contact() {
         <div className="h-1 w-16 bg-cyan-400 rounded-full mt-3 mx-auto"></div>
       </div>
       <div className="flex gap-6 mb-8">
-        <a
-          href="mailto:dor3382@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:opacity-70 transition-opacity"
-        >
-          <Image
-            src="/gmail.svg"
-            alt="Gmail"
-            width={32}
-            height={32}
-            className="invert"
-          />
+        <a href="mailto:dor3382@gmail.com" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity">
+          <Image src="/gmail.svg" alt="Gmail" width={32} height={32} className="invert" />
         </a>
-        <a
-          href="https://github.com/DORI2001"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:opacity-70 transition-opacity"
-        >
-          <Image
-            src="/github.svg"
-            alt="GitHub"
-            width={32}
-            height={32}
-            className="invert"
-          />
+        <a href="https://github.com/DORI2001" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity">
+          <Image src="/github.svg" alt="GitHub" width={32} height={32} className="invert" />
         </a>
-        <a
-          href="https://www.linkedin.com/in/dor-alagem"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:opacity-70 transition-opacity"
-        >
-          <Image
-            src="/linkedin.svg"
-            alt="LinkedIn"
-            width={32}
-            height={32}
-            className="invert"
-          />
+        <a href="https://www.linkedin.com/in/dor-alagem" target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity">
+          <Image src="/linkedin.svg" alt="LinkedIn" width={32} height={32} className="invert" />
         </a>
       </div>
-      <form
-        action="mailto:dor3382@gmail.com"
-        method="GET"
-        className="flex flex-col gap-4 w-full max-w-md"
-      >
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full max-w-md">
         <input
+          name="name"
           type="text"
           placeholder="your name"
+          required
           className="bg-neutral-800 text-white rounded-lg p-3 font-mono text-sm"
         />
         <input
+          name="email"
           type="email"
           placeholder="your email"
+          required
           className="bg-neutral-800 text-white rounded-lg p-3 font-mono text-sm"
         />
         <textarea
+          name="message"
           placeholder="your message"
           rows={5}
+          required
           className="bg-neutral-800 text-white rounded-lg p-3 font-mono text-sm"
         />
         <button
           type="submit"
-          className="bg-cyan-400 text-black font-mono font-semibold px-6 py-3 rounded-full hover:bg-cyan-300 transition-colors"
+          disabled={status === "sending"}
+          className="bg-cyan-400 text-black font-mono font-semibold px-6 py-3 rounded-full hover:bg-cyan-300 transition-colors disabled:opacity-50"
         >
-          send →
+          {status === "sending" ? "sending..." : "send →"}
         </button>
+        {status === "success" && (
+          <p className="text-emerald-400 font-mono text-sm text-center">message sent!</p>
+        )}
+        {status === "error" && (
+          <p className="text-red-400 font-mono text-sm text-center">something went wrong. try again.</p>
+        )}
       </form>
     </div>
   );
