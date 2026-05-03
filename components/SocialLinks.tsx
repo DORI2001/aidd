@@ -17,7 +17,6 @@ export default function SocialLinks({
         rel="noopener noreferrer"
         className={`hover:opacity-70 transition-opacity flex items-center justify-center${dimCls}`}
       >
-        {/* שימוש ב-SVG בגוון לבן בעזרת פילטר כדי להבטיח תצוגה תקינה על רקע כהה */}
         <Image
           src="/github.svg"
           alt="GitHub"
@@ -35,6 +34,18 @@ export default function SocialLinks({
         <Image
           src="/linkedin.svg"
           alt="LinkedIn"
+          width={size}
+          height={size}
+          style={{ filter: "brightness(0) invert(1)" }}
+        />
+      </a>
+      <a
+        href="mailto:doralagem@gmail.com"
+        className={`hover:opacity-70 transition-opacity flex items-center justify-center${dimCls}`}
+      >
+        <Image
+          src="/gmail.svg"
+          alt="Gmail"
           width={size}
           height={size}
           style={{ filter: "brightness(0) invert(1)" }}
