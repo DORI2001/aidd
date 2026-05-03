@@ -7,7 +7,7 @@ export default function SocialLinks({
   size?: number;
   dim?: boolean;
 }) {
-  const cls = `invert${dim ? " opacity-60" : ""}`;
+  const cls = `brightness-0 invert${dim ? " opacity-60" : ""}`;
 
   return (
     <>
