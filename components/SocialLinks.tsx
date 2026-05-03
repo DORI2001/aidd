@@ -22,7 +22,7 @@ export default function SocialLinks({
           alt="GitHub"
           width={size}
           height={size}
-          style={{ filter: "brightness(0) invert(1)" }}
+          className="invert brightness-0"
         />
       </a>
       <a
@@ -36,7 +36,7 @@ export default function SocialLinks({
           alt="LinkedIn"
           width={size}
           height={size}
-          style={{ filter: "brightness(0) invert(1)" }}
+          className="invert brightness-0"
         />
       </a>
     </>
