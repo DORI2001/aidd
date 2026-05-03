@@ -39,18 +39,6 @@ export default function SocialLinks({
           style={{ filter: "brightness(0) invert(1)" }}
         />
       </a>
-      <a
-        href="mailto:doralagem@gmail.com"
-        className={`hover:opacity-70 transition-opacity flex items-center justify-center${dimCls}`}
-      >
-        <Image
-          src="/gmail.svg"
-          alt="Gmail"
-          width={size}
-          height={size}
-          style={{ filter: "brightness(0) invert(1)" }}
-        />
-      </a>
     </>
   );
 }
