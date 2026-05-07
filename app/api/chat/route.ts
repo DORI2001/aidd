@@ -3,7 +3,7 @@ import { buildSystemPrompt } from "@/lib/system-prompt";
 
 export const runtime = "nodejs";
 
-const MAX_MESSAGES = 10;
+const MAX_MESSAGES = 14;
 
 export async function POST(req: Request) {
   const { messages } = await req.json();

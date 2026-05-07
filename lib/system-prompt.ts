@@ -35,5 +35,24 @@ Gym, swimming, travelling`);
 GitHub: https://github.com/DORI2001
 LinkedIn: https://www.linkedin.com/in/dor-alagem`);
 
+  sections.push(`## Work Style
+Team-oriented and collaborative. Enjoys working with others, sharing knowledge, and learning from teammates. Believes the best solutions come from open communication and diverse perspectives.`);
+
+  sections.push(`## Education Highlights
+GPA: 95 | Dean's List honoree at HIT`);
+
+  sections.push(`## Languages
+Hebrew (native), English (fluent)`);
+
+  sections.push(`## This Website
+Built as part of the AIDD (AI-Driven Development) course — a project focused on building a real portfolio using AI tools, Next.js, and modern web development practices.`);
+
+  sections.push(`## Fun Facts
+- Hits the gym and swims regularly to stay sharp
+- Loves traveling and experiencing new places and cultures
+- Built this portfolio website as part of the AIDD course — from zero web experience to a live, deployed site
+- Already worked with IoT, AI, Docker, and full-stack development before finishing his degree
+- Believes the best code is written in good company`);
+
   return sections.join("\n\n");
 }
