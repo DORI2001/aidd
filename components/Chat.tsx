@@ -26,6 +26,7 @@ export default function Chat({
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!input.trim() || isLoading) return;
+    if (messages.length >= 14) return;
     sendMessage({ role: "user", parts: [{ type: "text", text: input }] });
     setInput("");
   }
@@ -71,6 +72,13 @@ export default function Chat({
             </div>
           </div>
         ))}
+        {messages.length >= 14 && (
+          <div className="flex justify-start">
+            <div className="bg-neutral-800 text-zinc-200 rounded-2xl px-4 py-2 max-w-[85%] text-sm">
+              We've reached the chat limit! Feel free to refresh to start a new conversation 😊
+            </div>
+          </div>
+        )}
         {isLoading && (
           <div className="flex justify-start">
             <div className="bg-neutral-800 rounded-2xl px-4 py-3 flex gap-1">
