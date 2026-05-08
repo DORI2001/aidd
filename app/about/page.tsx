@@ -18,6 +18,14 @@ export default function About() {
     "GitHub",
     "Docker",
     "Prompt Engineering",
+    "AWS Lambda",
+    "DynamoDB",
+    "API Gateway",
+    "SQS",
+    "SES",
+    "AWS SAM",
+    "Serverless Architecture",
+    "CloudFormation",
   ];
 
   return (

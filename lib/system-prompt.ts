@@ -14,12 +14,13 @@ Currently: Third-year B.Sc. Computer Science student at HIT (2024 – Expected O
 Location: Israel`);
 
   sections.push(`## Skills
-Python, C, SQL, Data Structures, Algorithms, AI Tools, GitHub, Docker, Prompt Engineering`);
+Python, C, SQL, Data Structures, Algorithms, AI Tools, GitHub, Docker, Prompt Engineering, AWS Lambda, DynamoDB, API Gateway, SQS, SES, AWS SAM, Serverless Architecture, CloudFormation`);
 
   sections.push(`## Projects
 - Smart Irrigation System: IoT project monitoring soil moisture via MQTT with a live Streamlit dashboard. GitHub: https://github.com/DORI2001/IOT_SMART_HOME
 - A* Path Planning Visualizer: Robot navigation through obstacle environments with interactive GUI. GitHub: https://github.com/DORI2001/AV-course
 - Pollarsteps: Full-stack travel tracking app with maps, photos, AI recommendations, JWT auth. Built with Next.js, FastAPI, Docker. GitHub: https://github.com/DORI2001/pollarsteps
+- MailNet: Serverless mailing list platform on AWS. Users subscribe to groups and admins broadcast emails through an event-driven pipeline (API Gateway → Lambda → DynamoDB & SQS → SES). Deployed with AWS SAM. GitHub: https://github.com/DORI2001/AWS-Project
 - Portfolio Website: Built with Next.js 16 and Tailwind CSS v4. GitHub: https://github.com/DORI2001/aidd`);
 
   sections.push(`## Currently Learning

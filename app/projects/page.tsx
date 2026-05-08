@@ -26,6 +26,12 @@ const projects = [
     link: "https://github.com/DORI2001/pollarsteps",
   },
   {
+    name: "MailNet",
+    description:
+      "Serverless mailing list platform on AWS. Users subscribe to groups and admins broadcast emails through an event-driven pipeline: API Gateway → Lambda → DynamoDB & SQS → SES. Deployed with AWS SAM.",
+    link: "https://github.com/DORI2001/AWS-Project",
+  },
+  {
     name: "This Portfolio",
     description:
       "Built from scratch with Next.js 16 and Tailwind CSS v4. My first web dev project — designed and coded while learning the fundamentals.",
