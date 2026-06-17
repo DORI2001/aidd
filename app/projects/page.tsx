@@ -32,6 +32,12 @@ const projects = [
     link: "https://github.com/DORI2001/AWS-Project",
   },
   {
+    name: "Expense Tracker API",
+    description:
+      "Microservices-based REST API for tracking expenses. Create users, log costs by category, and generate monthly reports. Built with Node.js, Express, and MongoDB Atlas across four independent services, tested with pytest and deployed on Render.",
+    link: "https://github.com/OfekDanny/backend-final-project-main",
+  },
+  {
     name: "This Portfolio",
     description:
       "Built from scratch with Next.js 16 and Tailwind CSS v4. My first web dev project — designed and coded while learning the fundamentals.",
